@@ -1,0 +1,39 @@
+<ion-view class="lang_page">
+  
+  <ion-header-bar class="header_bar bar bar-header bar-stable">
+    <!--button class="button button-icon button-clear icon ion-arrow-up-a" ng-click="">
+    </button-->
+
+    <div class="title">
+      {{$root.translates.translation_site}}
+    </div>
+
+    <!--button class="button button-icon button-clear icon ion-navicon" menu-toggle="right">
+    </button-->
+
+  </ion-header-bar>
+
+  <ion-content padding="true" scroll="true">
+    <div class="list lang_bar">
+      <label class="item item-input item-select">
+        <select ng-change="changed_Language(cur_index)" ng-model="cur_index">
+          <option ng-repeat="l in languages" value="{{$index}}">{{l.label}}</option>
+        </select>
+
+        <div class="input-label lbl_lang">
+          <div class="text">Language</div>
+          <i class="icon ion-earth"></i>
+        </div>
+
+      </label>
+
+      <button class="button button-balanced button-full icon-right  icon-arrow-rightdrop" ng-click="goStoryList()">
+        Bible Stories
+      </button>
+
+    </div>
+  </ion-content>
+
+  <div class="footer-bar">
+  </div>
+</ion-view>

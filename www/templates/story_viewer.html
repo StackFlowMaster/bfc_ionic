@@ -1,0 +1,70 @@
+  <ion-modal-view class="story_viewer">
+    <ion-header-bar>
+      <button class="button button-icon button-positive ion-close btnClose" ng-click="closeStoryView()">
+      </button>
+
+      <button class="button button-icon button-positive ion-chevron-left btnBack" ng-click="pdf_prev()" >
+      </button>
+
+      <button class="button button-icon button-positive ion-chevron-right btnNext" ng-click="pdf_next()">
+      </button>
+      
+      <h1 class="title" ng-show="!is_story_loading">
+        <span ng-show="$root.cur_lang.language_direction == 'ltr'" class="px1">{{currentPage}} / {{pageCount}}</span>
+        <span ng-show="$root.cur_lang.language_direction == 'rtl'" class="px1">{{pageCount}} / {{currentPage}}</span>
+      </h1>
+
+    </ion-header-bar>
+
+    <ion-content class="view_content" scroll="true">
+      <div style="width: 100%; text-align:center; margin-top: 10px;" ng-show="is_story_loading">
+        <ion-spinner icon="android"></ion-spinner>
+      </div>
+
+      <div class="error" style="margin: 5px; color:red;" ng-show="story_msg">
+        {{story_msg}}
+      </div>
+
+      <div class="pdf_view" on-swipe-left="onPDFLeft()" on-swipe-right="onPDFRight()" on-swipe-up="onPDFUp()" on-swipe-down="onPDFDown()">
+        <div class="tool_bar" ng-show="!is_story_loading" style="display:none;">
+
+          <div ng-show="$root.cur_lang.language_direction == 'ltr'">
+            <a href="" ng-click="pdf_prev()" class="button button-positive icon ion-chevron-left btnBack"></a>
+            <a href="" ng-click="pdf_next()" class="button button-positive icon ion-chevron-right btnNext"></a>
+            <!--a href="" ng-click="pdf_rotate()" class="button button-positive icon ion-refresh btnRotate"></a-->
+          </div>
+
+          <div ng-show="$root.cur_lang.language_direction == 'rtl'">
+            <a href="" ng-click="pdf_next()" class="button button-positive icon ion-chevron-left btnBack"></a>
+            <a href="" ng-click="pdf_prev()" class="button button-positive icon ion-chevron-right btnNext"></a>
+            <!--a href="" ng-click="pdf_rotate()" class="button button-positive icon ion-refresh btnRotate"></a-->
+          </div>
+
+          <!--a href="" ng-click="pdf_zoomIn()" class="button button-royal">Zoom In</a>
+          <a href="" ng-click="pdf_zoomOut()" class="button button-royal">Zoom Out</a>
+          <a href="" ng-click="pdf_rotate()" class="button button-assertive">Rotate</a-->
+          
+          <div class="page_bar">
+            <span ng-show="$root.cur_lang.language_direction == 'ltr'" class="px1">{{currentPage}} / {{pageCount}}</span>
+            <span ng-show="$root.cur_lang.language_direction == 'rtl'" class="px1">{{pageCount}} / {{currentPage}}</span>
+            <!--input type="text" class="field-dark page_num" min=1 ng-model="currentPage" ng-change="goToPage()" /-->
+            <!--span class="px2"></span-->
+          </div>
+          <div style="width: 100%; text-align:center; margin-top: 10px;" ng-show="is_page_loading">
+            <ion-spinner icon="android"></ion-spinner>
+          </div>
+        
+        </div>
+
+        <!--ion-scroll max-zoom="5" overflow-scroll="false" zooming="true" direction="xy" style="width: 100%; height:100%;" scrollbar-x=false; scrollbar-y = false;-->
+          <pdf-viewer
+            delegate-handle="my-pdf-container"
+            url=""
+            scale="1"
+            show-toolbar="false"
+            headers="{ 'x-you-know-whats-awesome': 'EVERYTHING' }">
+          </pdf-viewer>
+        <!--/ion-scroll-->
+      </div>
+    </ion-content>
+  </ion-modal-view>
