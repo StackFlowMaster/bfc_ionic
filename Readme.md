@@ -17,6 +17,6 @@ Ionic 4, Cordova, Cordova Plugin, ngCordova, Angualr Factory/Service, iOS Develo
 # Tech Spec
 cordova pdf view, canvas plugin, cordova push notification plugin, cordvoa sqlite plugin, local Storage/session Storage, cordova geolocation plugin
 
-<img src="1.png" width="30%" />
-<img src="2.png" width="30%" />
-<img src="3.png" width="30%" />
+<img src="1.jpg" width="30%" />
+<img src="2.jpg" width="30%" />
+<img src="3.jpg" width="30%" />
